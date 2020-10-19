@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
@@ -11,6 +13,7 @@ import { MyblogComponent } from './myblog/myblog.component';
 import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CreateComponent } from './create/create.component';
 
 let firebaseConfig = {
     apiKey: "AIzaSyB1TzVDygD-ZeKRdFNAfOudX4x4HmVFm6k",
@@ -32,8 +35,9 @@ firebase.initializeApp(firebaseConfig);
     MyblogComponent,
     SignupComponent,
     HomeComponent,
+    CreateComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule,HttpClientModule, AngularEditorModule],
   providers: [],
   bootstrap: [AppComponent],
 })
