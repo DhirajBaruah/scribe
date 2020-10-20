@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -12,6 +12,7 @@ export class CreateComponent implements OnInit {
   editorConfig: any;
   title: string;
   content: string;
+  @Output('postCreated') postCreated = new EventEmitter();
 
   constructor() {
     this.editorConfig = {
@@ -71,6 +72,7 @@ export class CreateComponent implements OnInit {
       })
       .then((data) => {
         console.log(data);
+        this.postCreated.emit();
       })
       .catch((error) => {
         console.log(error);

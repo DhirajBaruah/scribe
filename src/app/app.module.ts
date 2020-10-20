@@ -14,6 +14,9 @@ import { SignupComponent } from './signup/signup.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CreateComponent } from './create/create.component';
+import { PostComponent } from './post/post.component';
+import { ViewComponent } from './view/view.component';
+import { CommentsComponent } from './comments/comments.component';
 
 let firebaseConfig = {
     apiKey: "AIzaSyB1TzVDygD-ZeKRdFNAfOudX4x4HmVFm6k",
@@ -36,6 +39,9 @@ firebase.initializeApp(firebaseConfig);
     SignupComponent,
     HomeComponent,
     CreateComponent,
+    PostComponent,
+    ViewComponent,
+    CommentsComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule,HttpClientModule, AngularEditorModule],
   providers: [],
