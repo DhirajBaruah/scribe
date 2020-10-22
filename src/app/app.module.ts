@@ -17,6 +17,8 @@ import { CreateComponent } from './create/create.component';
 import { PostComponent } from './post/post.component';
 import { ViewComponent } from './view/view.component';
 import { CommentsComponent } from './comments/comments.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { ProfileComponent } from './profile/profile.component';
 
 let firebaseConfig = {
     apiKey: "AIzaSyB1TzVDygD-ZeKRdFNAfOudX4x4HmVFm6k",
@@ -42,6 +44,8 @@ firebase.initializeApp(firebaseConfig);
     PostComponent,
     ViewComponent,
     CommentsComponent,
+    EditProfileComponent,
+    ProfileComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule,HttpClientModule, AngularEditorModule],
   providers: [],

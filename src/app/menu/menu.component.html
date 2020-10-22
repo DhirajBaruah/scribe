@@ -40,7 +40,11 @@
         </button>
       </li>
       <li class="nav-item right" *ngIf="loggedIn">
-        <a class="nav-link" routerLink="/myProfile">My Profile</a>
+        <a class="nav-link" [routerLink]="'/profile/'+uid ">My Profile</a>
+      </li>
+
+      <li class="nav-item right" *ngIf="loggedIn">
+        <a class="nav-link" routerLink="/myblog" >Blog</a>
       </li>
 
       <li class="nav-item right" *ngIf="loggedIn">

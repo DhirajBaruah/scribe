@@ -5,7 +5,10 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
+import { UseExistingWebDriver } from 'protractor/built/driverProviders';
 import { AuthService } from '../auth.service';
+import * as firebase from 'firebase/app';
+import 'firebase/firestore';
 
 @Component({
   selector: 'app-signup',
@@ -55,8 +58,20 @@ export class SignupComponent implements OnInit {
 
     this.authService
       .signup(firstName, lastName, email, password)
-      .then(() => {
-        this.message="You have successfully signed up. Please Login"
+      .then((user: any) => {
+        firebase.firestore().collection("users").doc(user.uid)
+        .set({
+          firstName:form.value.firstName,
+          lastName:form.value.lastName,
+          email:form.value.email,
+          photoURL:user.photoURL,
+          interest:"",
+          bio:"",
+          hobbies:""
+        })
+        .then(()=>{
+          this.message="You have successfully signed up. Please Login"
+        })
       })
       .catch((error) => {
         console.log(error);

@@ -6,6 +6,8 @@ import {LoginComponent} from './login/login.component';
 import {MyblogComponent} from './myblog/myblog.component';
 import {ViewComponent} from './view/view.component';
 import {AuthGuard} from './auth.guard';
+import {EditProfileComponent} from './edit-profile/edit-profile.component';
+import {ProfileComponent} from './profile/profile.component';
 
 const routes: Routes = [{
   path:'', redirectTo:'home', pathMatch:'full'
@@ -20,7 +22,13 @@ const routes: Routes = [{
   path:'myblog', component: MyblogComponent, canActivate:[AuthGuard]
 },
 {
+  path:'profile/:id', component: ProfileComponent
+},
+{
   path:'view/:postId', component: ViewComponent, canActivate:[AuthGuard]
+},
+{
+  path:'edit-profile/:id', component: EditProfileComponent, canActivate:[AuthGuard]
 },
 {
   path:'**', redirectTo:'home'

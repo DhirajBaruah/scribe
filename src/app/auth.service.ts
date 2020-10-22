@@ -22,7 +22,7 @@ export class AuthService {
               photoURL: 'https://avatarfiles.alphacoders.com/343/34399.gif',
             })
             .then(() => {
-              resolve();
+              resolve(response.user);
             })
             .catch((error) => {
               reject(error);
